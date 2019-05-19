@@ -12,12 +12,12 @@ public class GifRepository {
 
     private static List<Gif> ALL_GIFS = Arrays.asList(
 
-            new Gif("Android-explosion", "mols", true),
-            new Gif("ben-and-mike", "mika", false),
-            new Gif("book-dominos", "mem", true),
-            new Gif("compiler-bot", "bot", false),
-            new Gif("cowboy-coder", "code", true),
-            new Gif("infinite-andrew", "andrew", false)
+            new Gif("Android-explosion", "mols", true, 1),
+            new Gif("ben-and-mike", "mika", false, 2),
+            new Gif("book-dominos", "mem", true, 0),
+            new Gif("compiler-bot", "bot", false, 1),
+            new Gif("cowboy-coder", "code", true, 1),
+            new Gif("infinite-andrew", "andrew", false, 2)
     );
 
     public List<Gif> getGifs() {
@@ -42,5 +42,15 @@ public class GifRepository {
         }
         return favoriteGifs;
     }
-    
+    public List<Gif> getGifsByCategoryId(int id){
+        List<Gif> categories = new ArrayList<>();
+
+        for (Gif gif : ALL_GIFS){
+            if(gif.getCategoryId() == id){
+                categories.add(gif);
+            }
+        }
+        return categories;
+    }
+
 }
